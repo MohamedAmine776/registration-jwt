@@ -1,0 +1,43 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: 0000
+    url: jdbc:postgresql://localhost:5432/virtual_trading_db
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: false
+
+  mail:
+    host: localhost
+    port: 1025
+    username: hello
+    password: hello
+
+    properties:
+      mail:
+        smtp:
+          ssl:
+            trust: "*"
+          auth: true
+          starttls:
+            enable: true
+          connectiontimeout: 5000
+          timeout: 3000
+          writetimeout: 5000
+application:
+  jwt:
+    secretKey: SecuringTheSecurityOfMyAPI
+    tokenPrefix: Bearer
+    tokenExpirationAfterMinutes: 10
+    refreshTokenExpirationAfterMinutes : 60
